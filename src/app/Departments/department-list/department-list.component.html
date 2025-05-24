@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <h2 class="mb-4 text-center">Departments List</h2>
+
+  <table class="table table-striped table-bordered align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Department</th>
+        <th>Manager Name</th>
+        <th>Employees Count</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dept of departments; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ dept.name }}</td>
+        <td>{{ dept.managerName }}</td>
+        <td>{{ dept.employeesCount }}</td>
+        <td>
+          <button
+            class="btn btn-sm btn-primary me-2"
+            (click)="update(dept.id, dept)"
+          >
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="delete(dept.id)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
